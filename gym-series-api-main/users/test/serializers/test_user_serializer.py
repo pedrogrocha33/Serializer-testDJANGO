@@ -44,10 +44,7 @@ class UserCreateSerializerTestCase(TestCase):
         serializer = UserCreateSerializer(data=data)
 
         self.assertFalse(serializer.is_valid())
-        self.assertEqual(
-            serializer.errors["username"][0].title(),
-            "Username Precisa Ter Pelo Menos 4 Caracteres",
-        )
+        self.assertEqual(serializer.errors["username"][0].title(), "Username Precisa Ter Pelo Menos 4 Caracteres")
 
     def test_user_serializer_email_invalid(self):
         data = {
@@ -60,11 +57,8 @@ class UserCreateSerializerTestCase(TestCase):
         serializer = UserCreateSerializer(data=data)
 
         self.assertFalse(serializer.is_valid())
-        self.assertEqual(
-            serializer.errors["email"][0].title(),
-            "O E-Mail Não Está Em Um Formato Válido",
-        )
-
+        self.assertEqual(serializer.errors["email"][0].title(), "O E-Mail Não Está Em Um Formato Válido")
+    
     def test_user_serializer_password_invalid(self):
         data = {
             "username": "test",
@@ -76,7 +70,4 @@ class UserCreateSerializerTestCase(TestCase):
         serializer = UserCreateSerializer(data=data)
 
         self.assertFalse(serializer.is_valid())
-        self.assertEqual(
-            serializer.errors["password"][0].title(),
-            "A Senha Deve Ter Pelo Menos Caractere Especial.",
-        )
+        self.assertEqual(serializer.errors["password"][0].title(), "A Senha Deve Ter Pelo Menos Caractere Especial.")

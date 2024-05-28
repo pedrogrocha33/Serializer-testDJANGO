@@ -17,7 +17,6 @@ shell:
 
 fmt: 
 	black .
-	ruff check .
 
 db.up: 
 	docker-compose up -d
